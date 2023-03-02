@@ -16,6 +16,11 @@ const menuHamb = document.querySelector('.mobile-menu');
 const iconCarrito = document.querySelector('.navbar-shopping-cart');
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
 
+ /* Variables  del asode de detalles del producto*/
+
+const productDetailContainer = document.querySelector('#product-detail');
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
+
 
 /* Toggle del menu emal en desktop */ 
 
@@ -24,6 +29,7 @@ btnMenuEmailDesktop.addEventListener('click', toggleMenuEmailDesktop);
 
 function toggleMenuEmailDesktop(){
   shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
   menuEmailDesktop.classList.toggle('inactive');
 }
 
@@ -31,7 +37,8 @@ function toggleMenuEmailDesktop(){
 menuHambIcon.addEventListener('click', toggleMenuHamb);
 
 function toggleMenuHamb(){
- shoppingCartContainer.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
+  shoppingCartContainer.classList.add('inactive');
   menuHamb.classList.toggle('inactive');
 }
 
@@ -39,10 +46,28 @@ function toggleMenuHamb(){
 iconCarrito.addEventListener('click', toggleCarritoCompras);
 
 function toggleCarritoCompras(){
- shoppingCartContainer.classList.toggle('inactive');
   menuEmailDesktop.classList.add('inactive');
   menuHamb.classList.add('inactive');
+  productDetailContainer.classList.add('inactive');
+  shoppingCartContainer.classList.toggle('inactive');
 
+}
+
+/* Abriendo detalles del producto haciendo click a cada imagen */
+function openProductDetailAside(){
+  menuHamb.classList.add('inactive');
+  shoppingCartContainer.classList.add('inactive');
+  menuEmailDesktop.classList.add('inactive');
+  productDetailContainer.classList.remove('inactive');
+
+}
+
+
+/* Cerrar el aside de detalles de cada producto */
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside);
+
+function closeProductDetailAside(){
+  productDetailContainer.classList.add('inactive');
 }
 
 /* Lista de productos */
@@ -78,6 +103,7 @@ function listaDeProductos(arr){
     
     const productImg = document.createElement('img');
     productImg.setAttribute('src', product.image);
+    productImg.addEventListener('click', openProductDetailAside);
   
     const productInfo = document.createElement('div');
     productInfo.classList.add('product-info');
