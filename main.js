@@ -1,21 +1,29 @@
 
 /*Variables del menu email en desktop */
+
 const btnMenuEmailDesktop = document.querySelector('.navbar-email');
 const menuEmailDesktop = document.querySelector('.desktop-menu');
 
+
 /*Variables del menu mobile */
+
 const menuHambIcon = document.querySelector('.menu');
 const menuHamb = document.querySelector('.mobile-menu');
 
+
 /*Variables del aside carrito de compras y detalles */
+
 const iconCarrito = document.querySelector('.navbar-shopping-cart');
-const detallesProducto = document.querySelector('.product-detail');
+const shoppingCartContainer = document.querySelector('#shoppingCartContainer');
+
 
 /* Toggle del menu emal en desktop */ 
+
 btnMenuEmailDesktop.addEventListener('click', toggleMenuEmailDesktop);
 
+
 function toggleMenuEmailDesktop(){
-  detallesProducto.classList.add('inactive');
+  shoppingCartContainer.classList.add('inactive');
   menuEmailDesktop.classList.toggle('inactive');
 }
 
@@ -23,7 +31,7 @@ function toggleMenuEmailDesktop(){
 menuHambIcon.addEventListener('click', toggleMenuHamb);
 
 function toggleMenuHamb(){
-  detallesProducto.classList.add('inactive');
+ shoppingCartContainer.classList.add('inactive');
   menuHamb.classList.toggle('inactive');
 }
 
@@ -31,7 +39,7 @@ function toggleMenuHamb(){
 iconCarrito.addEventListener('click', toggleCarritoCompras);
 
 function toggleCarritoCompras(){
-  detallesProducto.classList.toggle('inactive');
+ shoppingCartContainer.classList.toggle('inactive');
   menuEmailDesktop.classList.add('inactive');
   menuHamb.classList.add('inactive');
 
