@@ -12,6 +12,11 @@ body {
   margin: 0;
   font-family: 'Quicksand', sans-serif;
 }
+header{
+  position: fixed;
+  width: 100%;
+  background: var(--white);
+}
 nav {
   display: flex;
   justify-content: space-between;
@@ -177,11 +182,13 @@ aside {
   position: absolute;
   right: 0;
   box-shadow: 0px 1px 5px 0px #0000004d;
+  top: 61px;
+  position: fixed;
 }
 
 /* ----------Shopping cart---------- */
 #shoppingCartContainer{
-  padding: 0 24px 24px;
+  padding: 0px 24px 24px;
 
 }
 .title-container {
@@ -253,8 +260,8 @@ aside {
 }
 
 /* Lista de productos */
-.cards-container {
-  padding: 20px;
+.cards-container-2 {
+  padding: 100px 20px 20px;
   display: grid;
   grid-template-columns: repeat(auto-fill, 240px);
   gap: 40px;
@@ -276,12 +283,12 @@ aside {
   cursor: pointer;
 }
 .product-card .product-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  /* justify-content: space-between; */
+  /* align-items: center; */
   padding: 20px;
   background: var(--white);
-/
+  grid-template-columns: 4fr 1fr;
 }
 .product-card .product-info figure {
   margin: 0;
@@ -303,7 +310,15 @@ aside {
   color: var(--very-light-pink);
 }
 
-/*Aside detalles del producto*/
+.product-card .categoria{
+  /* font-weight: bold; */
+  font-size: 13px;
+  margin-top: 0;
+  margin-bottom: 4px;
+  color: var(--very-light-pink);
+}
+
+/*------ Aside detalles del producto*/
 .product-detail-close {
   background: var(--white);
   width: 14px;
@@ -374,7 +389,7 @@ aside {
 /*------------------------------------------------
                 MEDIA QUERIS
 -------------------------------------------------*/
-@media (max-width: 640px) {
+@media (max-width: 780px) {
   .menu {
     display: block;
     cursor: pointer;
@@ -394,20 +409,9 @@ aside {
   aside {
     width: 100%;
   }
-
-  .cards-container {
-    grid-template-columns: repeat(auto-fill, 140px);
-  }
-  .product-card {
-    width: 140px;
-  }
-  .product-card img {
-    width: 140px;
-    height: 140px;
-  }
 }
 
-@media (min-width: 641px){
+@media (min-width: 781px){
   
   .mobile-menu{
     display: none;
